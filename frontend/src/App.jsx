@@ -11,43 +11,45 @@ export default function App() {
   const audioRef = useRef(null)
 
   const playlist = {
-  arctic: {
-    src: "frontend/public/music/505.mp3",
-    mood: "arctic-mode"
-  },
-  cas: {
-    src: "frontend/public/music/Apocalypse.mp3",
-    mood: "cas-mode"
+    arctic: {
+      src: "/music/505.mp3", // Public folder path
+      mood: "arctic-mode"
+    },
+    cas: {
+      src: "/music/Apocalypse.mp3", // Public folder path
+      mood: "cas-mode"
+    }
   }
-}
 
   const [currentTrack, setCurrentTrack] = useState("arctic")
   const [volume, setVolume] = useState(0.5)
+  const [autoplayAllowed, setAutoplayAllowed] = useState(false)
 
-  // Fade in effect
+  // Play audio when track changes
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
 
-    audio.volume = 0
-    audio.play().catch(() => {})
+    if (autoplayAllowed) {
+      audio.currentTime = 0
+      audio.volume = 0
+      audio.play().catch(() => {})
 
-    let fade = setInterval(() => {
-      if (audio.volume < volume) {
-        audio.volume += 0.02
-      } else {
-        clearInterval(fade)
-      }
-    }, 100)
+      let fade = setInterval(() => {
+        if (audio.volume < volume) {
+          audio.volume = Math.min(audio.volume + 0.02, volume)
+        } else {
+          clearInterval(fade)
+        }
+      }, 100)
 
-    return () => clearInterval(fade)
-  }, [currentTrack])
-
-  // Volume change live
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume
+      return () => clearInterval(fade)
     }
+  }, [currentTrack, autoplayAllowed, volume])
+
+  // Volume control live
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.volume = volume
   }, [volume])
 
   // Mood change
@@ -56,26 +58,31 @@ export default function App() {
     document.body.classList.add(playlist[currentTrack].mood)
   }, [currentTrack])
 
+  // User interaction to allow autoplay
+  const handleUserInteraction = () => setAutoplayAllowed(true)
+
   return (
     <BrowserRouter>
       <audio ref={audioRef} src={playlist[currentTrack].src} loop />
 
-      <Navbar 
-        setTrack={setCurrentTrack}
-        volume={volume}
-        setVolume={setVolume}
-      />
+      <div onClick={handleUserInteraction} onKeyDown={handleUserInteraction}>
+        <Navbar 
+          setTrack={setCurrentTrack}
+          volume={volume}
+          setVolume={setVolume}
+        />
 
-      <div className="page-wrapper">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/resources" element={<Resources />} />
-        </Routes>
+        <div className="page-wrapper">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/resources" element={<Resources />} />
+          </Routes>
+        </div>
+
+        <Footer />
       </div>
-
-      <Footer />
     </BrowserRouter>
   )
 }
