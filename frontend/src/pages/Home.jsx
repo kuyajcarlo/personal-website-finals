@@ -15,10 +15,7 @@ export default function Home() {
           </div>
           <h1 className="profile-name">John Carlo E Baracena</h1>
           <p className="profile-subtitle">Web Developer &amp; Gaming Enthusiast</p>
-          <div className="btn-group">
-            <Link to="/profile" className="btn-primary">View Profile</Link>
-            <Link to="/gallery" className="btn-secondary">Gallery</Link>
-          </div>
+
         </div>
 
         {/* Right Side */}
