@@ -1143,3 +1143,44 @@ textarea.form-input {
 .volume-control input {
   width: 200px;
 }
+
+/* PartyRoom.css */
+#party-room-container {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;       /* ensures full coverage */
+  background-position: center;  /* centers the mood background */
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;             /* for particles */
+}
+
+.disco-ball {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  animation: spin 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Optional glow around the disco ball */
+.disco-ball::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255,255,255,0.6), 0 0 80px rgba(255,255,255,0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 30px rgba(255,255,255,0.4); }
+  to   { box-shadow: 0 0 60px rgba(255,255,255,0.8); }
+}
