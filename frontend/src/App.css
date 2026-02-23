@@ -1212,21 +1212,34 @@ textarea.form-input {
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.4s ease;
-  background: #eee; /* Default state */
-  color: #333;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent default */
+  color: #fff;
+  border-radius: 4px;
 }
-/* 505 / Arctic Button (Red/Neon) */
+
+/* 505 / Arctic Button ACTIVE State */
 .mood-btn.arctic.active {
   background: #ff0033 !important;
   color: white !important;
   box-shadow: 0 0 20px #ff0033;
-  border-color: #ff0033;
+  border: 2px solid #fff !important;
 }
 
-/* Apocalypse / CAS Button (White/Glow) */
+/* Apocalypse / CAS Button ACTIVE State */
 .mood-btn.cas.active {
   background: #ffffff !important;
-  color: black !important;
+  color: #000 !important;
   box-shadow: 0 0 20px #ffffff;
-  border-radius: 30px; /* Circular for CAS vibes */
+  border-radius: 30px !important; /* Rounded for the CAS aesthetic */
+}
+
+/* Ensure content is above particles */
+.party-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
