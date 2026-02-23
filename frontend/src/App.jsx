@@ -14,6 +14,7 @@ export default function App() {
   arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
   cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" },
   kanibalismo: { src: "/music/KanibalismoII.mp3", mood: "kanibalismo-mode" }
+  cupofjoe: { src: "/music/WagNaLang.mp3", mood: "coj-mode" }
 }
 
   const [currentTrack, setCurrentTrack] = useState("arctic")

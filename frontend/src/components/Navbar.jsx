@@ -50,6 +50,16 @@ export default function Navbar({ setTrack, volume, setVolume }) {
               Kanibalismo II
             </button>
 
+            <button
+              className="music-btn"
+              onClick={() => {
+                setTrack("cupofjoe")
+                setOpen(false)
+              }}
+            >
+              Wag na lang
+            </button>
+
 
             <input
               type="range"

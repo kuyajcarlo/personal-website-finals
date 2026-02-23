@@ -1267,3 +1267,24 @@ textarea.form-input {
   border: 2px solid #ff4d4d !important;
   font-family: 'Creepster', cursive; /* Optional: kung may horror font ka */
 }
+.party-room.coj-mode {
+  background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  color: #5d4037; /* Brownish text para sa retro feel */
+}
+
+/* Sparkle Particles */
+.particle.coj-mode {
+  background: #ffffff;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  box-shadow: 0 0 10px #fff9c4;
+  opacity: 0.7;
+}
+
+/* Wag Na Lang Button Active State */
+.mood-btn.coj.active {
+  background: #ff8a65 !important;
+  color: white !important;
+  box-shadow: 0 0 20px #ffab91;
+  border-radius: 12px !important;
+  border: 2px dashed #fff !important; /* Jazzy/Creative border */
+}

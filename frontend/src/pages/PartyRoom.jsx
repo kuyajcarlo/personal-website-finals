@@ -75,6 +75,12 @@ export default function PartyRoom({
           className={`mood-btn kanibalismo ${currentTrack === 'kanibalismo' ? 'active' : ''}`}
           onClick={() => setCurrentTrack('kanibalismo')}
           >Kanibalismo II</button>
+          <button 
+          className={`mood-btn coj ${currentTrack === 'cupofjoe' ? 'active' : ''}`}
+          onClick={() => setCurrentTrack('cupofjoe')}
+          >
+          Wag Na Lang
+          </button>
         </div>
 
         <div className="volume-control">
