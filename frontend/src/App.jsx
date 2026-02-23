@@ -6,19 +6,13 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Gallery from './pages/Gallery'
 import Resources from './pages/Resources'
+import PartyRoom from './pages/PartyRoom' // new page
 
 export default function App() {
   const audioRef = useRef(null)
-
   const playlist = {
-    arctic: {
-      src: "/music/505.mp3", // Public folder path
-      mood: "arctic-mode"
-    },
-    cas: {
-      src: "/music/Apocalypse.mp3", // Public folder path
-      mood: "cas-mode"
-    }
+    arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
+    cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" }
   }
 
   const [currentTrack, setCurrentTrack] = useState("arctic")
@@ -52,13 +46,12 @@ export default function App() {
     if (audioRef.current) audioRef.current.volume = volume
   }, [volume])
 
-  // Mood change
-  useEffect(() => {
-    document.body.classList.remove("arctic-mode", "cas-mode")
-    document.body.classList.add(playlist[currentTrack].mood)
-  }, [currentTrack])
+  // **Remove global mood changes here**
+  // useEffect(() => {
+  //   document.body.classList.remove("arctic-mode", "cas-mode")
+  //   document.body.classList.add(playlist[currentTrack].mood)
+  // }, [currentTrack])
 
-  // User interaction to allow autoplay
   const handleUserInteraction = () => setAutoplayAllowed(true)
 
   return (
@@ -66,7 +59,7 @@ export default function App() {
       <audio ref={audioRef} src={playlist[currentTrack].src} loop />
 
       <div onClick={handleUserInteraction} onKeyDown={handleUserInteraction}>
-        <Navbar 
+        <Navbar
           setTrack={setCurrentTrack}
           volume={volume}
           setVolume={setVolume}
@@ -78,6 +71,20 @@ export default function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/resources" element={<Resources />} />
+            <Route
+              path="/party"
+              element={
+                <PartyRoom
+                  playlist={playlist}
+                  currentTrack={currentTrack}
+                  setCurrentTrack={setCurrentTrack}
+                  volume={volume}
+                  setVolume={setVolume}
+                  autoplayAllowed={autoplayAllowed}
+                  setAutoplayAllowed={setAutoplayAllowed}
+                />
+              }
+            />
           </Routes>
         </div>
 

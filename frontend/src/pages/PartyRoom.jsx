@@ -1,17 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-export default function PartyRoom() {
+export default function PartyRoom({
+  playlist,
+  currentTrack,
+  setCurrentTrack,
+  volume,
+  setVolume,
+  autoplayAllowed,
+  setAutoplayAllowed
+}) {
   const audioRef = useRef(null)
 
-  const playlist = {
-    arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
-    cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" }
-  }
+  // Handle mood **only inside this page**
+  useEffect(() => {
+    const container = document.getElementById('party-room-container')
+    if (!container) return
+    container.className = `party-room ${playlist[currentTrack].mood}`
+  }, [currentTrack, playlist])
 
-  const [currentTrack, setCurrentTrack] = useState("arctic")
-  const [volume, setVolume] = useState(0.5)
-  const [autoplayAllowed, setAutoplayAllowed] = useState(false)
-
+  // Play audio locally (fade-in)
   useEffect(() => {
     const audio = audioRef.current
     if (!audio || !autoplayAllowed) return
@@ -28,19 +35,11 @@ export default function PartyRoom() {
     return () => clearInterval(fade)
   }, [currentTrack, volume, autoplayAllowed])
 
-  // Apply mood **only in this page**
-  useEffect(() => {
-    const container = document.getElementById("party-room-container")
-    if (!container) return
-    container.className = `party-room ${playlist[currentTrack].mood}`
-  }, [currentTrack])
-
   const handleUserInteraction = () => setAutoplayAllowed(true)
 
   return (
     <div
       id="party-room-container"
-      className="party-room"
       onClick={handleUserInteraction}
       onKeyDown={handleUserInteraction}
     >
@@ -48,8 +47,8 @@ export default function PartyRoom() {
       <audio ref={audioRef} src={playlist[currentTrack].src} loop />
 
       <div className="track-buttons">
-        <button onClick={() => setCurrentTrack("arctic")}>505</button>
-        <button onClick={() => setCurrentTrack("cas")}>Apocalypse</button>
+        <button onClick={() => setCurrentTrack('arctic')}>505</button>
+        <button onClick={() => setCurrentTrack('cas')}>Apocalypse</button>
       </div>
 
       <div className="volume-control">
