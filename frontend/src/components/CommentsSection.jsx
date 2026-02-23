@@ -93,7 +93,7 @@ export default function CommentsSection() {
   return (
     <section className="comments-section" id="comments">
       <h2 className="section-title">
-        <i className="bi bi-chat-dots-fill"></i> GUESTBOOK
+        <i className="bi bi-chat-dots-fill"></i> COMMENTS
       </h2>
 
       <div className="comments-grid">
