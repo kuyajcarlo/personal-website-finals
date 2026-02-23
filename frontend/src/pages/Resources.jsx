@@ -24,7 +24,6 @@ const sections = [
     title: 'Hosting & Deployment',
     items: [
       { name: 'Vercel', desc: 'Frontend hosting platform for React app', url: 'https://vercel.com/' },
-      { name: 'Render.com', desc: 'Backend hosting for Flask API', url: 'https://render.com/' },
       { name: 'GitHub', desc: 'Version control and source code hosting', url: 'https://github.com/' },
     ],
   },
@@ -33,7 +32,6 @@ const sections = [
     title: 'Development Tools',
     items: [
       { name: 'Visual Studio Code', desc: 'Code editor', url: 'https://code.visualstudio.com/' },
-      { name: 'Chrome DevTools', desc: 'Browser developer tools for testing', url: 'https://developer.chrome.com/docs/devtools/' },
     ],
   },
   {
