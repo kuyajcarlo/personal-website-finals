@@ -10,33 +10,40 @@ export default function PartyRoom() {
 
   const [currentTrack, setCurrentTrack] = useState("arctic")
   const [volume, setVolume] = useState(0.5)
+  const [autoplayAllowed, setAutoplayAllowed] = useState(false)
 
-  // Play music and fade in
   useEffect(() => {
     const audio = audioRef.current
-    if (!audio) return
+    if (!audio || !autoplayAllowed) return
 
     audio.currentTime = 0
     audio.volume = 0
     audio.play().catch(() => {})
 
-    let fade = setInterval(() => {
-      if (audio.volume < volume) {
-        audio.volume = Math.min(audio.volume + 0.02, volume)
-      } else {
-        clearInterval(fade)
-      }
+    const fade = setInterval(() => {
+      if (audio.volume < volume) audio.volume = Math.min(audio.volume + 0.02, volume)
+      else clearInterval(fade)
     }, 100)
 
-    // Mood effect
-    document.body.classList.remove("arctic-mode", "cas-mode")
-    document.body.classList.add(playlist[currentTrack].mood)
-
     return () => clearInterval(fade)
-  }, [currentTrack, volume])
+  }, [currentTrack, volume, autoplayAllowed])
+
+  // Apply mood **only in this page**
+  useEffect(() => {
+    const container = document.getElementById("party-room-container")
+    if (!container) return
+    container.className = `party-room ${playlist[currentTrack].mood}`
+  }, [currentTrack])
+
+  const handleUserInteraction = () => setAutoplayAllowed(true)
 
   return (
-    <div className="party-room">
+    <div
+      id="party-room-container"
+      className="party-room"
+      onClick={handleUserInteraction}
+      onKeyDown={handleUserInteraction}
+    >
       <h1>🎉 Party Room</h1>
       <audio ref={audioRef} src={playlist[currentTrack].src} loop />
 

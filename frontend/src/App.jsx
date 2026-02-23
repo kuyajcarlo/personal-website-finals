@@ -6,19 +6,14 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Gallery from './pages/Gallery'
 import Resources from './pages/Resources'
+import PartyRoom from './pages/PartyRoom' // Import the new PartyRoom page
 
 export default function App() {
   const audioRef = useRef(null)
 
   const playlist = {
-    arctic: {
-      src: "/music/505.mp3", // Public folder path
-      mood: "arctic-mode"
-    },
-    cas: {
-      src: "/music/Apocalypse.mp3", // Public folder path
-      mood: "cas-mode"
-    }
+    arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
+    cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" }
   }
 
   const [currentTrack, setCurrentTrack] = useState("arctic")
@@ -28,23 +23,21 @@ export default function App() {
   // Play audio when track changes
   useEffect(() => {
     const audio = audioRef.current
-    if (!audio) return
+    if (!audio || !autoplayAllowed) return
 
-    if (autoplayAllowed) {
-      audio.currentTime = 0
-      audio.volume = 0
-      audio.play().catch(() => {})
+    audio.currentTime = 0
+    audio.volume = 0
+    audio.play().catch(() => {})
 
-      let fade = setInterval(() => {
-        if (audio.volume < volume) {
-          audio.volume = Math.min(audio.volume + 0.02, volume)
-        } else {
-          clearInterval(fade)
-        }
-      }, 100)
+    let fade = setInterval(() => {
+      if (audio.volume < volume) {
+        audio.volume = Math.min(audio.volume + 0.02, volume)
+      } else {
+        clearInterval(fade)
+      }
+    }, 100)
 
-      return () => clearInterval(fade)
-    }
+    return () => clearInterval(fade)
   }, [currentTrack, autoplayAllowed, volume])
 
   // Volume control live
@@ -78,6 +71,7 @@ export default function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/party" element={<PartyRoom />} /> {/* New Party Room Route */}
           </Routes>
         </div>
 
