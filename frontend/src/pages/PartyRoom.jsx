@@ -44,7 +44,6 @@ export default function PartyRoom({
       onKeyDown={handleUserInteraction}
     >
       <h1>🎉 Party Room</h1>
-      <audio ref={audioRef} src={playlist[currentTrack].src} loop />
 
       <div className="track-buttons">
         <button onClick={() => setCurrentTrack('arctic')}>505</button>
