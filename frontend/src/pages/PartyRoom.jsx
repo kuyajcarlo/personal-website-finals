@@ -70,6 +70,11 @@ export default function PartyRoom({
           >
             Apocalypse
           </button>
+          {/* BAGONG BUTTON */}
+          <button 
+          className={`mood-btn kanibalismo ${currentTrack === 'kanibalismo' ? 'active' : ''}`}
+          onClick={() => setCurrentTrack('kanibalismo')}
+          >Kanibalismo II</button>
         </div>
 
         <div className="volume-control">

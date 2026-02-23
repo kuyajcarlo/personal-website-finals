@@ -1243,3 +1243,27 @@ textarea.form-input {
   justify-content: center;
   height: 100%;
 }
+
+/* Kanibalismo Mood Background */
+.party-room.kanibalismo-mode {
+  background: radial-gradient(circle, #4a0000 0%, #000000 100%);
+  color: #ff4d4d;
+}
+
+/* Kanibalismo Particles (Blood Drops) */
+.particle.kanibalismo-mode {
+  background: #8b0000;
+  border-radius: 0 50% 50% 50%; /* Drop shape */
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px #ff0000;
+  opacity: 0.8;
+}
+
+/* Kanibalismo Button Active State */
+.mood-btn.kanibalismo.active {
+  background: #8b0000 !important;
+  color: #fff !important;
+  box-shadow: 0 0 25px #ff0000;
+  border: 2px solid #ff4d4d !important;
+  font-family: 'Creepster', cursive; /* Optional: kung may horror font ka */
+}

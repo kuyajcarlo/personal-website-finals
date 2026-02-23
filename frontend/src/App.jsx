@@ -11,9 +11,10 @@ import PartyRoom from './pages/PartyRoom'
 export default function App() {
   const audioRef = useRef(null)
   const playlist = {
-    arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
-    cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" }
-  }
+  arctic: { src: "/music/505.mp3", mood: "arctic-mode" },
+  cas: { src: "/music/Apocalypse.mp3", mood: "cas-mode" },
+  kanibalismo: { src: "/music/KanibalismoII.mp3", mood: "kanibalismo-mode" }
+}
 
   const [currentTrack, setCurrentTrack] = useState("arctic")
   const [volume, setVolume] = useState(0.5)
