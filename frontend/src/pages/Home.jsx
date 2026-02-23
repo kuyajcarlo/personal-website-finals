@@ -19,9 +19,6 @@ export default function Home() {
             <Link to="/profile" className="btn-primary">View Profile</Link>
             <Link to="/gallery" className="btn-secondary">Gallery</Link>
           </div>
-          <a href="/images/MyProfile.jpg" download="MyProfile.jpg" className="download-link">
-            <i className="bi bi-download"></i> Download Profile Photo
-          </a>
         </div>
 
         {/* Right Side */}
