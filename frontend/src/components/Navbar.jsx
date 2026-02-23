@@ -39,6 +39,17 @@ export default function Navbar({ setTrack, volume, setVolume }) {
             >
               Apocalypse
             </button>
+            
+            <button
+              className="music-btn"
+              onClick={() => {
+                setTrack("kanibalismo")
+                setOpen(false)
+              }}
+            >
+              Kanibalismo II
+            </button>
+
 
             <input
               type="range"
