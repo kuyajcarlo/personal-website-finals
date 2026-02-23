@@ -20,7 +20,7 @@ function buildPhotos() {
   for (let i = 1; i <= ME_COUNT; i++)
     arr.push({ src: `/images/me/Me(${i}).jpg`, cat: 'me', alt: `Me ${i}` })
   for (let i = 1; i <= FRIENDS_COUNT; i++)
-    arr.push({ src: `/images/friends/Friends(${i}).jpg`, cat: 'friends', alt: `Friends ${i}` })
+    arr.push({ src: `/images/friends/Friends&Family(${i}).jpg`, cat: 'friends', alt: `Friends ${i}` })
   for (let i = 1; i <= RANDOM_COUNT; i++)
     arr.push({ src: `/images/random/Random(${i}).jpg`, cat: 'random', alt: `Random ${i}` })
   return arr
