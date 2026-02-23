@@ -1267,9 +1267,10 @@ textarea.form-input {
   border: 2px solid #ff4d4d !important;
   font-family: 'Creepster', cursive; /* Optional: kung may horror font ka */
 }
+/* Darkened Wag Na Lang Mood */
 .party-room.coj-mode {
-  background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-  color: #5d4037; /* Brownish text para sa retro feel */
+  background: linear-gradient(180deg, #d38184 0%, #b27a6d 100%); /* Desaturated coral/brown */
+  color: #fff;
 }
 
 /* Sparkle Particles */
@@ -1279,6 +1280,12 @@ textarea.form-input {
   box-shadow: 0 0 10px #fff9c4;
   opacity: 0.7;
 }
+
+.coj-mode .progress-bar-fill {
+  background: #ff8a65;
+  box-shadow: 0 0 10px #ff8a65;
+}
+
 
 /* Wag Na Lang Button Active State */
 .mood-btn.coj.active {
@@ -1322,7 +1329,6 @@ textarea.form-input {
 .cas-mode .progress-bar-fill { background: #ffffff; }
 .kanibalismo-mode .progress-bar-fill { background: #8b0000; }
 .coj-mode .progress-bar-fill { background: #ff8a65; }
-
 .time-display {
   display: flex;
   justify-content: center; /* Centers the 0:00 / 3:30 text */
