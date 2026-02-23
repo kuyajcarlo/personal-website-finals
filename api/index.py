@@ -43,7 +43,7 @@ def post_comment():
 
         # Insert into Supabase
         # IMPORTANT: If you renamed your column to 'comment', change "message": message to "comment": message
-        new_comment = {"name": name, "message": message}
+        new_comment = {"name": name, "comment": message}
         response = supabase.table('comments').insert(new_comment).execute()
         
         return jsonify({"success": True, "data": response.data})
