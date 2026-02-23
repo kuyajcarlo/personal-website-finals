@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 // UPDATE: Changed this line to use your actual forwarded backend URL
-const API_BASE = 'https://organic-dollop-pjpg7gq4qjwwc977j-8080.app.github.dev'
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export default function CommentsSection() {
   const [comments, setComments] = useState([])
