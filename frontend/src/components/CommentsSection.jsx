@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
-// UPDATE: Changed this line to use your actual forwarded backend URL
-const API_BASE = import.meta.env.VITE_API_URL || '';
+// Using an empty string for API_BASE ensures it uses the same domain on Vercel
+const API_BASE = '';
 
 export default function CommentsSection() {
   const [comments, setComments] = useState([])
@@ -12,29 +12,29 @@ export default function CommentsSection() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
-  // GET comments from backend
   useEffect(() => {
     fetchComments()
   }, [])
 
   async function fetchComments() {
     setFetching(true)
+    setError('')
     try {
       const res = await fetch(`${API_BASE}/api/comments`)
       const data = await res.json()
       if (data.success) {
         setComments(data.data)
+      } else {
+        console.error('API Error:', data.error)
       }
     } catch (err) {
       console.error('Failed to load comments:', err)
-      // If this triggers, it's usually because Port 8080 is still set to "Private"
       setError('Could not connect to the database.')
     } finally {
       setFetching(false)
     }
   }
 
-  // POST new comment to backend
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
@@ -50,7 +50,10 @@ export default function CommentsSection() {
       const res = await fetch(`${API_BASE}/api/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), message: message.trim() }),
+        body: JSON.stringify({ 
+          name: name.trim(), 
+          message: message.trim() 
+        }),
       })
       const data = await res.json()
 
@@ -58,20 +61,20 @@ export default function CommentsSection() {
         setName('')
         setMessage('')
         setSuccess('Comment posted!')
-        fetchComments()
+        fetchComments() // Refresh list
         setTimeout(() => setSuccess(''), 3000)
       } else {
         setError(data.error || 'Something went wrong.')
       }
     } catch (err) {
-      setError('Could not reach server. Ensure backend port 8080 is PUBLIC.')
+      setError('Server unreachable. Please check your Vercel logs.')
     } finally {
       setLoading(false)
     }
   }
 
   function handleClear() {
-    if (window.confirm('Clear all comments? (This only clears your view — backend data is preserved.)')) {
+    if (window.confirm('Clear all comments? (This only clears your view)')) {
       setComments([])
     }
   }
@@ -145,7 +148,8 @@ export default function CommentsSection() {
                     <span className="comment-name">{c.name}</span>
                     <span className="comment-time">{formatDate(c.created_at)}</span>
                   </div>
-                  <p className="comment-body">{c.comment}</p>
+                  {/* Fixed to match your Supabase column name 'comment' */}
+                  <p className="comment-body">{c.comment || c.message}</p>
                 </div>
               ))}
             </div>
