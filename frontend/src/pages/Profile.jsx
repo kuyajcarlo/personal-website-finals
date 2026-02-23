@@ -130,11 +130,11 @@ export default function Profile() {
               </div>
               <div className="project-item">
                 <strong>PEMBEDS FINAL PROJECT</strong>
-                <p>A fully functionable morse code translator using only arduino kits</p>
+                <p>A fully functionable morse code translator using only APC Arduino Kits.</p>
               </div>
               <div className="project-item">
                 <strong>PERSONAL PORTFOLIO (THIS SITE)</strong>
-                <p>A full-stack portfolio website built with React + Flask + Supabase, deployed on Vercel and Render.</p>
+                <p>A full-stack portfolio website built with React + Flask + Supabase, deployed on Vercel.</p>
               </div>
             </div>
           </div>
