@@ -126,9 +126,7 @@ export default function CommentsSection() {
               <button type="submit" className={`btn-primary ${loading ? 'btn-loading' : ''}`} disabled={loading}>
                 {loading ? 'Posting...' : 'Post Comment'}
               </button>
-              <button type="button" className="btn-danger" onClick={handleClear}>
-                Clear View
-              </button>
+
             </div>
           </form>
         </div>
