@@ -17,6 +17,7 @@ export default function Navbar({ setTrack, volume, setVolume }) {
           <li><NavLink to="/profile" onClick={() => setOpen(false)}>About Me</NavLink></li>
           <li><NavLink to="/gallery" onClick={() => setOpen(false)}>Gallery</NavLink></li>
           <li><a href="/#comments" onClick={() => setOpen(false)}>Comments</a></li>
+          <li><NavLink to="/party" onClick={() => setOpen(false)}>Party Room</NavLink></li>
 
           {/* 🎵 MUSIC CONTROLS */}
           <li className="music-controls">

@@ -1118,3 +1118,28 @@ textarea.form-input {
   0%,100% { height: 4px; }
   50% { height: 16px; }
 }
+
+.arctic-mode {
+  background: linear-gradient(0deg, #a0eaff, #005f99);
+  color: #fff;
+}
+
+.cas-mode {
+  background: linear-gradient(0deg, #ff0000, #330000);
+  color: #fff;
+}
+
+.party-room {
+  text-align: center;
+  padding: 2rem;
+}
+
+.track-buttons button {
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.volume-control input {
+  width: 200px;
+}
