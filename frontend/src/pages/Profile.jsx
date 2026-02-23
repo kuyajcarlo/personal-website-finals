@@ -29,8 +29,8 @@ export default function Profile() {
               <span>jebaracena@student.apc.edu.ph</span>
             </div>
 
-            <a href="/images/MyProfile.jpg" download="MyProfile.jpg" className="btn-primary" style={{ marginTop: '1rem', display: 'inline-block', fontSize: '0.85rem' }}>
-              <i className="bi bi-download"></i> Download Photo
+            <a href="/images/MyProfile.jpg"  className="btn-primary" style={{ marginTop: '1rem', display: 'inline-block', fontSize: '0.85rem' }}>
+                            <i className="bi bi-profile"></i>
             </a>
 
             <div className="social-icons">
