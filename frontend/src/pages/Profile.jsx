@@ -28,11 +28,6 @@ export default function Profile() {
               <i className="bi bi-envelope-at-fill"></i>
               <span>jebaracena@student.apc.edu.ph</span>
             </div>
-
-            <a href="/images/MyProfile.jpg"  className="btn-primary" style={{ marginTop: '1rem', display: 'inline-block', fontSize: '0.85rem' }}>
-              <i className="bi bi-profile"></i>
-            </a>
-
             <div className="social-icons">
               <a href="https://www.facebook.com/gwapo.ko.tlg" target="_blank" rel="noreferrer">
                 <i className="bi bi-facebook"></i>
