@@ -129,6 +129,10 @@ export default function Profile() {
                 <p>Design mockups and interactive prototypes for gaming interfaces using modern CSS and JavaScript.</p>
               </div>
               <div className="project-item">
+                <strong>PEMBEDS FINAL PROJECT (THIS SITE)</strong>
+                <p>A fully functionable morse code translator using only arduino kits</p>
+              </div>
+              <div className="project-item">
                 <strong>PERSONAL PORTFOLIO (THIS SITE)</strong>
                 <p>A full-stack portfolio website built with React + Flask + Supabase, deployed on Vercel and Render.</p>
               </div>
