@@ -12,11 +12,11 @@ export default function App() {
 
   const playlist = {
   arctic: {
-    src: "/music/505.mp3",
+    src: "kuyajcarlo/personal-website-finals/frontend/public/music/505.mp3",
     mood: "arctic-mode"
   },
   cas: {
-    src: "/music/Apocalypse.mp3",
+    src: "kuyajcarlo/personal-website-finals/frontend/public/music/Apocalypse.mp3",
     mood: "cas-mode"
   }
 }
