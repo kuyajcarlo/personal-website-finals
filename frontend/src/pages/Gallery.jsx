@@ -1,19 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
-/* ─────────────────────────────────────────────────────
-   HOW TO ADD YOUR PHOTOS:
-   1. Put your images in: frontend/public/images/me/
-      frontend/public/images/friends/
-      frontend/public/images/random/
-   2. Name them: Me(1).jpg, Me(2).jpg, ... etc.
-      Friends(1).jpg, Friends(2).jpg ... etc.
-      Random(1).jpg, Random(2).jpg ... etc.
-   3. Update the counts below to match how many you have.
-───────────────────────────────────────────────────── */
-const ME_COUNT      = 13   // ← change to match your Me folder
-const FRIENDS_COUNT = 30   // ← change to match your Friends folder
-const RANDOM_COUNT  = 11   // ← change to match your Random folder
+const ME_COUNT      = 13   
+const FRIENDS_COUNT = 30   
+const RANDOM_COUNT  = 11   
 
 function buildPhotos() {
   const arr = []

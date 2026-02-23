@@ -6,7 +6,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Gallery from './pages/Gallery'
 import Resources from './pages/Resources'
-import PartyRoom from './pages/PartyRoom' // new page
+import PartyRoom from './pages/PartyRoom' 
 
 export default function App() {
   const audioRef = useRef(null)
@@ -19,7 +19,6 @@ export default function App() {
   const [volume, setVolume] = useState(0.5)
   const [autoplayAllowed, setAutoplayAllowed] = useState(false)
 
-  // Play audio when track changes
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
@@ -41,16 +40,9 @@ export default function App() {
     }
   }, [currentTrack, autoplayAllowed, volume])
 
-  // Volume control live
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = volume
   }, [volume])
-
-  // **Remove global mood changes here**
-  // useEffect(() => {
-  //   document.body.classList.remove("arctic-mode", "cas-mode")
-  //   document.body.classList.add(playlist[currentTrack].mood)
-  // }, [currentTrack])
 
   const handleUserInteraction = () => setAutoplayAllowed(true)
 

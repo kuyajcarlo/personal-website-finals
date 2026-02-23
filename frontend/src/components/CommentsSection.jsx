@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 
-// Using an empty string for API_BASE ensures it uses the same domain on Vercel
 const API_BASE = '';
 
 export default function CommentsSection() {
