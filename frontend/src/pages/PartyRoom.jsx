@@ -41,44 +41,31 @@ export default function PartyRoom({
   setCurrentTrack,
   volume,
   setVolume,
-  autoplayAllowed,
   setAutoplayAllowed
 }) {
   const currentMood = playlist[currentTrack].mood
 
-  // Handle container mood class
-  useEffect(() => {
-    const container = document.getElementById('party-room-container')
-    if (container) {
-      container.className = `party-room ${currentMood}`
-    }
-  }, [currentMood])
-
-  const handleUserInteraction = () => setAutoplayAllowed(true)
-
   return (
     <div
       id="party-room-container"
-      onClick={handleUserInteraction}
-      onKeyDown={handleUserInteraction}
       className={`party-room ${currentMood}`}
+      onClick={() => setAutoplayAllowed(true)}
     >
-      {/* 1. Added Particles Component */}
       <Particles mood={currentMood} />
 
       <div className="party-content">
         <h1>🎉 Party Room</h1>
 
         <div className="track-buttons">
-          {/* 2. Added conditional classes to buttons for styling */}
+          {/* Use 'mood-btn' and 'arctic'/'cas' with 'active' logic */}
           <button 
-            className={`btn-mood ${currentTrack === 'arctic' ? 'active-arctic' : ''}`}
+            className={`mood-btn arctic ${currentTrack === 'arctic' ? 'active' : ''}`}
             onClick={() => setCurrentTrack('arctic')}
           >
             505
           </button>
           <button 
-            className={`btn-mood ${currentTrack === 'cas' ? 'active-cas' : ''}`}
+            className={`mood-btn cas ${currentTrack === 'cas' ? 'active' : ''}`}
             onClick={() => setCurrentTrack('cas')}
           >
             Apocalypse
