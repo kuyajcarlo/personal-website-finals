@@ -30,7 +30,7 @@ export default function Profile() {
             </div>
 
             <a href="/images/MyProfile.jpg"  className="btn-primary" style={{ marginTop: '1rem', display: 'inline-block', fontSize: '0.85rem' }}>
-                            <i className="bi bi-profile"></i>
+              <i className="bi bi-profile"></i>
             </a>
 
             <div className="social-icons">
